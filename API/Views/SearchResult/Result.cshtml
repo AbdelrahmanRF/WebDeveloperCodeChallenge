@@ -1,0 +1,39 @@
+@{
+    ViewData["Title"] = "Issues";
+}
+
+@model List<IssueViewModel>
+
+<h1 style="text-align: center;">@ViewData["repoName"] Issues</h1>
+
+@if (Model != null && Model.Any())
+{
+    <div class="table-container">
+    <table class="table">
+        <tr>
+            <th>Issue No.</th>
+            <th>Title</th>
+            <th>Creation Date</th>
+            <th>Author</th>
+        </tr>
+        @foreach (var issue in Model)
+        {
+                <tr>
+                    <td>@issue.Number</td>
+                    <td><a href="@issue.Url" target="_blank">@issue.Title</a></td>
+                    <td>@issue.CreationDate</td>
+                    <td>
+                        <a href="@issue.AuthorProfileUrl" target="_blank" class="author-link">
+                                <img src="@issue.AuthorAvatarUrl" alt="Author Profile Picture" class="author-profile-img">
+                            <span class="author-username">@issue.AuthorUsername</span> </a>
+                       
+                    </td>
+                </tr>
+        }
+    </table>
+    </div>
+}
+else
+{
+    <p>No issues found.</p>
+}

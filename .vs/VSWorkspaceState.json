@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\API",
+    "\\API\\bin",
+    "\\API\\bin\\Debug",
+    "\\API\\bin\\Debug\\net7.0",
+    "\\API\\bin\\Release",
+    "\\API\\bin\\Release\\net7.0",
+    "\\API\\obj",
+    "\\API\\Properties"
+  ],
+  "SelectedNode": "\\GithubSearcher.sln",
+  "PreviewInSolutionExplorer": false
+}

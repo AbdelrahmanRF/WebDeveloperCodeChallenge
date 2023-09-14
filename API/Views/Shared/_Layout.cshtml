@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&family=Oswald:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="~/favicon.ico" rel="icon" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/API.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar box-shadow">
+            <div>
+                <a class="navbar-brand" asp-area="" asp-controller="Home"
+                    asp-action="Index">Github<span>Searcher</span></a>
+                <form action="/SearchResult/Result" method="post" class="form">
+                        <label for="owner">Owner:</label>
+                    <input type="text" id="owner" name="owner" required placeholder="🔍 Username">
+                    <label for="repoName">Repository Name:</label>
+                    <input type="text" id="repoName" name="repoName" required placeholder="🔍 Repository Name">
+                    <input type="submit" value="Search">
+                </form>
+
+            </div>
+        </nav>
+    </header>
+    
+    <div id="loader" class="loader">
+        @await Html.PartialAsync("_Loading")
+    </div>
+
+    <div class="container" id="main-content">
+        <main role="main" >
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - GithubSearcher 
+        </div>
+    </footer>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
